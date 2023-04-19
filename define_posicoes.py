@@ -1,3 +1,4 @@
+# Parte 1 (Define Posição Navio)
 def define_posicoes(linha, coluna, orientacao, tamanho):
     i = 0
     posicao_navio = [0]*tamanho
