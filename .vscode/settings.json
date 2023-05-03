@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./funções"
+    ],
+    "python.analysis.typeCheckingMode": "off"
+}

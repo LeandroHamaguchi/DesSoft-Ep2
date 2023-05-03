@@ -1,8 +1,4 @@
-def preenche_frota(frota,nome,linha,coluna,orientacao,tamanho):
-    comeco = [linha,coluna]
-
-
-
+def define_posicoes(linha, coluna, orientacao, tamanho):
     i = 0
     posicao_navio = [0]*tamanho
     while i < tamanho:
@@ -12,13 +8,14 @@ def preenche_frota(frota,nome,linha,coluna,orientacao,tamanho):
             posicao_navio[i] = [linha, coluna + i]
         i+=1
         
+    return posicao_navio
+
+def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
+    posicao_navio = define_posicoes(linha, coluna, orientacao, tamanho)
+
     if nome in frota.keys():
-        tamanho_chave = len(frota[str(nome)])
         frota[str(nome)].append(posicao_navio)
     else:
         frota[str(nome)] = [posicao_navio]
 
     return frota
-
-    
-
