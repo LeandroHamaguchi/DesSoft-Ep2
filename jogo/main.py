@@ -20,7 +20,7 @@ info_frota = {
     "contratorpedeiro": {'tamanho': 2, 'quantidade': 3},
     "submarino": {'tamanho': 1, 'quantidade': 4},
 }
-
+'''
 for nome_navio, dict_info in info_frota.items():
     i = 0
     while i < dict_info['quantidade']:
@@ -47,3 +47,39 @@ for nome_navio, dict_info in info_frota.items():
         i+=1
 
 print(frota)
+'''
+frota_oponente = {
+    'porta-aviões': [
+        [[9, 1], [9, 2], [9, 3], [9, 4]]
+    ],
+    'navio-tanque': [
+        [[6, 0], [6, 1], [6, 2]],
+        [[4, 3], [5, 3], [6, 3]]
+    ],
+    'contratorpedeiro': [
+        [[1, 6], [1, 7]],
+        [[0, 5], [1, 5]],
+        [[3, 6], [3, 7]]
+    ],
+    'submarino': [
+        [[2, 7]],
+        [[0, 6]],
+        [[9, 7]],
+        [[7, 6]]
+    ]
+}
+
+jogando = input(str('Deseja jogar?[True/False]: '))
+
+while jogando == True:
+    tabuleiro_oponete = []
+    
+    if tabuleiro_oponete == []:
+        tabuleiro_oponete = posiciona_frota(frota_oponente)
+    else:
+        pass
+
+    
+
+    
+
