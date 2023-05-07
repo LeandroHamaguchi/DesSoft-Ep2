@@ -143,7 +143,20 @@ while jogando == True:
     if navios_afundados == 10:
         print ("'Parabéns! Você derrubou todos os navios do seu oponente!'")
         break
+    
+    coordenadas_atacadas_oponente = []
+    linha = random.randint(0, 9)
+    coluna = random.randit(0, 9)
+    while [linha, coluna] in coordenadas_atacadas_oponente:
+        linha = random.randint(0, 9)
+        coluna = random.randit(0, 9)
+    coordenadas_atacadas_oponente.append([linha, coluna])
+    faz_jogada(tabueleiro_jogador, linha, coluna)
 
+    afundados(frota, tabueleiro_jogador)
+    if navios_afundados == 10:
+        print("Xi! O oponente derrubou toda a sua frota =(")
+        break
     
     
 

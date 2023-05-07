@@ -104,7 +104,7 @@ for i in lista_navios:
         orientacao = str(input('Orientação [1 = Vertical/ 2 = Horizontal]:'))
 
         if posicao_valida(frota,linha,coluna,orientacao,tamanho) == False:
-            print('Deu merda, escolhe de novo')
+            print('Deu errado, escolhe de novo')
         elif posicao_valida(frota,linha,coluna,orientacao,tamanho) == True:
             preenche_frota(frota,navio,linha,coluna,orientacao,tamanho)
             natureza = 'valida'

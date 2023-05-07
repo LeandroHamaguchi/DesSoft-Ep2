@@ -3,4 +3,4 @@ def faz_jogada(tabuleiro, linha, coluna):
         tabuleiro[linha][coluna] = "X"
     if tabuleiro[linha][coluna] == 0:
         tabuleiro[linha][coluna] = "-"
-    return tabuleiro
+    return tabuleiro 
