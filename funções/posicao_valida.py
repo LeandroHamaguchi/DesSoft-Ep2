@@ -23,6 +23,7 @@ def posicao_valida(frota, linha, coluna, orientacao, tamanho):
         if linha + tamanho > 10:
             return False
         
+        
     if frota == {}:
         return True
     else:

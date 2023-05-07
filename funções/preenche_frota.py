@@ -20,3 +20,4 @@ def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
         frota[str(nome)] = [posicao_navio]
 
     return frota
+
