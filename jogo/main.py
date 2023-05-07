@@ -7,6 +7,7 @@ from navios_afundados import afundados
 from posicao_valida import posicao_valida
 from posiciona_frota import posiciona_frota
 from preenche_frota import preenche_frota
+from monta_tabuleiros import monta_tabuleiros
 
 frota = {
     "porta-aviões":[],
@@ -69,15 +70,47 @@ frota_oponente = {
     ]
 }
 
-jogando = input(str('Deseja jogar?[True/False]: '))
+jogando = input(str('Deseja jogar?[True/False]:'))
 
 while jogando == True:
     tabuleiro_oponete = []
-    
     if tabuleiro_oponete == []:
         tabuleiro_oponete = posiciona_frota(frota_oponente)
     else:
         pass
+    coordenadas_atacadas_anteriormente = []
+    linha = int(input("Em qual linha você deseja atacar?"))
+    while linha > 9 or linha < 0:
+        print("Linha inválida!")
+        linha = int(input("Em qual linha você deseja atacar?"))
+    coluna = int(input("Em qual coluna você deseja atacar?"))
+    while coluna > 9 or coluna < 0:
+        print("Coluna inválida!")
+        coluna = int(input("Em qual Coluna você deseja atacar?"))
+    while [linha, coluna] in coordenadas_atacadas_anteriormente:
+        print ("A poisção linha LINHA e coluna COLUNA já foi informada anteriormente")
+        linha = int(input("Em qual linha você deseja atacar?"))
+        while linha > 9 or linha < 0:
+            print("Linha inválida!")
+            linha = int(input("Em qual linha você deseja atacar?"))
+        coluna = int(input("Em qual coluna você deseja atacar?"))
+        while coluna > 9 or coluna < 0:
+            print("Coluna inválida!")
+            coluna = int(input("Em qual Coluna você deseja atacar?"))
+    coordenadas_atacadas_anteriormente.append([linha, coluna])
+
+    
+    
+    
+
+
+
+
+
+
+
+
+
 
     
 
