@@ -1,3 +1,4 @@
+# Parte 4 (A função recebe a frota e posiciona ela no tabuleiro)
 def posiciona_frota(frota):
     tabuleiro = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

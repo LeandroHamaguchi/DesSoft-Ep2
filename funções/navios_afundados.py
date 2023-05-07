@@ -1,3 +1,4 @@
+# Parte 6 (A função recebe a frota e o tabuleiro de quem foi atacado e retorna quantos navios foram afundados)
 def afundados(frota, tabuleiro):
     lista_posicoes = []
     lista_x = 0

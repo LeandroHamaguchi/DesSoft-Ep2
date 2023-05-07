@@ -1,3 +1,4 @@
+# Parte 2 (Verifica se a posição definida é válida)
 def define_posicoes(linha, coluna, orientacao, tamanho):
     i = 0
     posicao_navio = [0]*tamanho

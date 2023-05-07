@@ -10,6 +10,7 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
         
     return posicao_navio
 
+# Parte 3 (Armazena as posições de todas as embarcações em um dicionário chamado frota)
 def preenche_frota(frota, nome, linha, coluna, orientacao, tamanho):
     posicao_navio = define_posicoes(linha, coluna, orientacao, tamanho)
 
