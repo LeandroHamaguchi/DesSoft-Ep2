@@ -1,4 +1,5 @@
 import sys
+import random
 sys.path.append('funções')
 
 from define_posicoes import define_posicoes
@@ -8,6 +9,8 @@ from posicao_valida import posicao_valida
 from posiciona_frota import posiciona_frota
 from preenche_frota import preenche_frota
 from monta_tabuleiros import monta_tabuleiros
+
+lista_navios = ['porta-aviões','navio-tanque','navio-tanque','contratorpedeiro','contratorpedeiro','contratorpedeiro','submarino','submarino','submarino','submarino']
 
 frota = {
     "porta-aviões":[],
@@ -49,6 +52,41 @@ for nome_navio, dict_info in info_frota.items():
 
 print(frota)
 '''
+
+for i in lista_navios:
+    natureza = 'invalida'
+    while natureza != 'valida':
+        if i == 'porta-aviões':
+            print(f'Insira as informações referentes ao navio {i} que possui tamanho 4')
+            navio = 'porta-aviões'
+            tamanho = 4
+        elif i == 'navio-tanque':
+            print(f'Insira as informações referentes ao navio {i} que possui tamanho 3')
+            navio = 'navio-tanque'
+            tamanho = 3
+        elif i == 'contratorpedeiro':
+            print(f'Insira as informações referentes ao navio {i} que possui tamanho 2')
+            navio = 'contratorpedeiro'
+            tamanho = 2
+        elif i == 'submarino':
+            print(f'Insira as informações referentes ao navio {i} que possui tamanho 1')
+            navio = 'submarino'
+            tamanho = 1
+        
+        linha = int(input('Linha:'))
+        coluna = int(input('Coluna:'))
+        orientacao = str(input('Orientação [1 = Vertical/ 2 = Horizontal]:'))
+
+        if posicao_valida(frota,linha,coluna,orientacao,tamanho) == False:
+            print('Deu errado, escolhe de novo')
+        elif posicao_valida(frota,linha,coluna,orientacao,tamanho) == True:
+            preenche_frota(frota,navio,linha,coluna,orientacao,tamanho)
+            natureza = 'valida'
+    
+tabueleiro_jogador = posiciona_frota(frota)
+
+print(tabueleiro_jogador)
+
 frota_oponente = {
     'porta-aviões': [
         [[9, 1], [9, 2], [9, 3], [9, 4]]
@@ -88,7 +126,7 @@ while jogando == True:
         print("Coluna inválida!")
         coluna = int(input("Em qual Coluna você deseja atacar?"))
     while [linha, coluna] in coordenadas_atacadas_anteriormente:
-        print ("A poisção linha LINHA e coluna COLUNA já foi informada anteriormente")
+        print ("A poisção linha LINHA e coluna COLUNA já foi informada anteriormente!")
         linha = int(input("Em qual linha você deseja atacar?"))
         while linha > 9 or linha < 0:
             print("Linha inválida!")
@@ -99,7 +137,13 @@ while jogando == True:
             coluna = int(input("Em qual Coluna você deseja atacar?"))
     coordenadas_atacadas_anteriormente.append([linha, coluna])
 
-    
+    faz_jogada(tabuleiro_oponete, linha, coluna)
+
+    navios_afundados = afundados(frota, tabuleiro_oponete)
+    if navios_afundados == 10:
+        print ("'Parabéns! Você derrubou todos os navios do seu oponente!'")
+        break
+
     
     
 
