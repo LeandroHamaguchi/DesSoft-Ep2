@@ -1,5 +1,6 @@
 import sys
 import random
+random.seed(2)
 sys.path.append('funções')
 
 from define_posicoes import define_posicoes
@@ -110,11 +111,11 @@ while jogando == True:
                 coluna_ataque_jogador = int(input("Em qual Coluna você deseja atacar?"))
         coordenadas_atacadas_anteriormente.append([linha_ataque_jogador, coluna_ataque_jogador])
 
-        faz_jogada(tabuleiro_oponente, linha_ataque_jogador, coluna_ataque_jogador)
-
+        tabuleiro_novo_oponente = faz_jogada(tabuleiro_oponente, linha_ataque_jogador, coluna_ataque_jogador)
+        tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_novo_oponente)
         print(tabuleiros)
 
-        navios_afundados = afundados(frota, tabuleiro_oponente)
+        navios_afundados = afundados(frota, tabuleiro_novo_oponente)
         if navios_afundados == 10:
             print ("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
@@ -127,11 +128,11 @@ while jogando == True:
             linha_ataque_oponente = random.randint(0, 9)
             coluna_ataque_oponente = random.randint(0, 9)
         coordenadas_atacadas_oponente.append([linha_ataque_oponente, coluna_ataque_oponente])
-        faz_jogada(tabuleiro_jogador, linha_ataque_oponente, coluna_ataque_oponente)
-
+        tabuleiro_novo_jogador = faz_jogada(tabuleiro_jogador, linha_ataque_oponente, coluna_ataque_oponente)
+        tabuleiros = monta_tabuleiros(tabuleiro_novo_jogador, tabuleiro_novo_oponente) 
         print(tabuleiros)
 
-        afundados(frota, tabuleiro_jogador)
+        navios_afundados = afundados(frota, tabuleiro_novo_jogador)
         if navios_afundados == 10:
             print("Xi! O oponente derrubou toda a sua frota =(")
             jogando = False
