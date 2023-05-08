@@ -84,6 +84,7 @@ while jogando == True:
        
     tabuleiro_jogador = posiciona_frota(frota)
     print(tabuleiro_jogador)
+    print(tabuleiro_oponente)
     
 
     tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
@@ -113,6 +114,8 @@ while jogando == True:
 
         faz_jogada(tabuleiro_oponente, linha_ataque_jogador, coluna_ataque_jogador)
 
+        print(tabuleiro_oponente)
+
         navios_afundados = afundados(frota, tabuleiro_oponente)
         if navios_afundados == 10:
             print ("Parabéns! Você derrubou todos os navios do seu oponente!")
@@ -120,13 +123,15 @@ while jogando == True:
             break
         
         coordenadas_atacadas_oponente = []
-        linha = random.randint(0, 9)
-        coluna = random.randint(0, 9)
+        linha_ataque_oponente = random.randint(0, 9)
+        coluna_ataque_oponente = random.randint(0, 9)
         while [linha, coluna] in coordenadas_atacadas_oponente:
-            linha = random.randint(0, 9)
-            coluna = random.randint(0, 9)
-        coordenadas_atacadas_oponente.append([linha, coluna])
-        faz_jogada(tabuleiro_jogador, linha, coluna)
+            linha_ataque_oponente = random.randint(0, 9)
+            coluna_ataque_oponente = random.randint(0, 9)
+        coordenadas_atacadas_oponente.append([linha_ataque_oponente, coluna_ataque_oponente])
+        faz_jogada(tabuleiro_jogador, linha_ataque_oponente, coluna_ataque_oponente)
+
+        print(tabuleiro_oponente)
 
         afundados(frota, tabuleiro_jogador)
         if navios_afundados == 10:
