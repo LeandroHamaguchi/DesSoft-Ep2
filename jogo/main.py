@@ -83,11 +83,9 @@ while jogando == True:
                 natureza = 'valida'
        
     tabuleiro_jogador = posiciona_frota(frota)
-    print(tabuleiro_jogador)
-    print(tabuleiro_oponente)
     
-
     tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_oponente)
+    print(tabuleiros)
 
     partida_acontecendo = True
     while partida_acontecendo == True:
@@ -114,7 +112,7 @@ while jogando == True:
 
         faz_jogada(tabuleiro_oponente, linha_ataque_jogador, coluna_ataque_jogador)
 
-        print(tabuleiro_oponente)
+        print(tabuleiros)
 
         navios_afundados = afundados(frota, tabuleiro_oponente)
         if navios_afundados == 10:
@@ -131,7 +129,7 @@ while jogando == True:
         coordenadas_atacadas_oponente.append([linha_ataque_oponente, coluna_ataque_oponente])
         faz_jogada(tabuleiro_jogador, linha_ataque_oponente, coluna_ataque_oponente)
 
-        print(tabuleiro_oponente)
+        print(tabuleiros)
 
         afundados(frota, tabuleiro_jogador)
         if navios_afundados == 10:
