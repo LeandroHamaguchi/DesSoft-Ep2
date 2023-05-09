@@ -115,7 +115,7 @@ while jogando == True:
         tabuleiros = monta_tabuleiros(tabuleiro_jogador, tabuleiro_novo_oponente)
         print(tabuleiros)
 
-        navios_afundados = afundados(frota, tabuleiro_novo_oponente)
+        navios_afundados = afundados(frota_oponente, tabuleiro_novo_oponente)
         if navios_afundados == 10:
             print ("Parabéns! Você derrubou todos os navios do seu oponente!")
             jogando = False
@@ -124,10 +124,11 @@ while jogando == True:
         coordenadas_atacadas_oponente = []
         linha_ataque_oponente = random.randint(0, 9)
         coluna_ataque_oponente = random.randint(0, 9)
-        while [linha, coluna] in coordenadas_atacadas_oponente:
+        while [linha_ataque_oponente, coluna_ataque_oponente] in coordenadas_atacadas_oponente:
             linha_ataque_oponente = random.randint(0, 9)
             coluna_ataque_oponente = random.randint(0, 9)
         coordenadas_atacadas_oponente.append([linha_ataque_oponente, coluna_ataque_oponente])
+        print('Seu oponente está atacando na linha {0} e coluna {1}'.format(linha_ataque_oponente,coluna_ataque_oponente))
         tabuleiro_novo_jogador = faz_jogada(tabuleiro_jogador, linha_ataque_oponente, coluna_ataque_oponente)
         tabuleiros = monta_tabuleiros(tabuleiro_novo_jogador, tabuleiro_novo_oponente) 
         print(tabuleiros)
