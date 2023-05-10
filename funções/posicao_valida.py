@@ -8,7 +8,7 @@ def define_posicoes(linha, coluna, orientacao, tamanho):
         else:
             posicao_navio[i] = [linha, coluna + i]
         i+=1
-        
+
     return posicao_navio
 
 def posicao_valida(frota, linha, coluna, orientacao, tamanho):
